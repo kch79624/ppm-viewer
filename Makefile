@@ -6,7 +6,7 @@
 #    By: jleem <jleem@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/29 06:11:41 by jleem             #+#    #+#              #
-#    Updated: 2021/01/29 09:57:08 by jleem            ###   ########.fr        #
+#    Updated: 2021/02/14 17:45:00 by jleem            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME)		: $(OBJS) $(LIBFT) $(GNL)
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBFLAGS)
 
 $(LIBFT)	:
-	$(MAKE) -C $(LIBFTDIR) CC='$(CC)' CFLAGS=-O3
+	$(MAKE) -C $(LIBFTDIR) CC='$(CC)' CFLAGS=-O3 bonus
 
 $(GNL)		:
 	$(MAKE) -C $(GNLDIR) CC='$(CC)' CFLAGS=-O3

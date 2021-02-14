@@ -6,12 +6,12 @@
 /*   By: jleem <jleem@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 07:54:53 by jleem             #+#    #+#             */
-/*   Updated: 2021/01/29 08:21:57 by jleem            ###   ########.fr       */
+/*   Updated: 2021/02/14 17:43:05 by jleem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "validate.h"
-#include "libft.h"
+#include "libft_bonus.h"
 #include "get_next_line.h"
 #include "util.h"
 
@@ -39,22 +39,17 @@ int		validate_str(int fd, char const *str)
 {
 	char			*line;
 	int				retcode;
-	size_t const	len = ft_strlen(str);
 
 	while ((retcode = get_next_line(fd, &line)) > 0)
 	{
 		if (line[0] != '#')
 		{
-			if (ft_strlen(line) == len && ft_strncmp(line, str, len) == 0)
-			{
-				free(line);
+			retcode = ft_strcmp(line, str);
+			free(line);
+			if (retcode == 0)
 				return (1);
-			}
 			else
-			{
-				free(line);
 				return (0);
-			}
 		}
 		free(line);
 	}
@@ -95,4 +90,3 @@ int		get_col_row(int fd, int *out_col, int *out_row)
 		free(line);
 	return (0);
 }
-
